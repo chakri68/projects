@@ -131,10 +131,16 @@ async function detectReadmeUrl(
 }
 
 /** GitHub Pages html_url if Pages is enabled, else null. Needs auth for some repos. */
-async function fetchPagesUrl(user: string, repo: string): Promise<string | null> {
-  const res = await fetch(`https://api.github.com/repos/${user}/${repo}/pages`, {
-    headers: ghHeaders(),
-  });
+async function fetchPagesUrl(
+  user: string,
+  repo: string,
+): Promise<string | null> {
+  const res = await fetch(
+    `https://api.github.com/repos/${user}/${repo}/pages`,
+    {
+      headers: ghHeaders(),
+    },
+  );
   if (!res.ok) return null;
   const data = (await res.json()) as { html_url?: string };
   return data.html_url ?? null;
@@ -173,7 +179,10 @@ function detectLiveUrl(
   return undefined;
 }
 
-function deriveStatus(repo: GhRepo, liveUrl: string | undefined): ProjectStatus {
+function deriveStatus(
+  repo: GhRepo,
+  liveUrl: string | undefined,
+): ProjectStatus {
   if (repo.archived) return "archived";
   if (liveUrl) return "live";
   if (repo.fork) return "fork";
@@ -256,7 +265,10 @@ async function readPreviousShow(): Promise<Map<string, boolean>> {
  * Decide the default `show` for a repo on first sight. Preserved values (from a
  * previous projects.json) always win over this — see main().
  */
-function defaultShow(repo: GhRepo, override: ProjectOverride | undefined): boolean {
+function defaultShow(
+  repo: GhRepo,
+  override: ProjectOverride | undefined,
+): boolean {
   if (override?.hidden) return false;
   // Auto-hide forks + archived by default (design §19); everything else shows.
   if (repo.fork || repo.archived) return false;
@@ -264,7 +276,9 @@ function defaultShow(repo: GhRepo, override: ProjectOverride | undefined): boole
 }
 
 async function main() {
-  console.log(`> syncing github.com/${USER}${TOKEN ? " (authenticated)" : " (anonymous)"}`);
+  console.log(
+    `> syncing github.com/${USER}${TOKEN ? " (authenticated)" : " (anonymous)"}`,
+  );
   const overrides = await readOverrides();
   const previousShow = await readPreviousShow();
 

@@ -1,12 +1,7 @@
 // Shared data contracts. Imported by both the build-time sync script (Node) and
 // the browser app, so this file must stay free of DOM/Node-specific APIs.
 
-export type ProjectStatus =
-  | "live"
-  | "wip"
-  | "archived"
-  | "no-demo"
-  | "fork";
+export type ProjectStatus = "live" | "wip" | "archived" | "no-demo" | "fork";
 
 /** Final merged project object rendered by the site. */
 export interface Project {

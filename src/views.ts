@@ -84,7 +84,7 @@ function cardHtml(p: Project): string {
     }" data-slug="${esc(p.slug)}"${p.hasReadme ? ' data-nav="1"' : ""}>
       <div class="card-badges">${badges}</div>
       <h3 class="card-title">${titleHtml}</h3>
-      <p class="card-desc">${esc(p.description) || "<span class=\"muted\">No description.</span>"}</p>
+      <p class="card-desc">${esc(p.description) || '<span class="muted">No description.</span>'}</p>
       <div class="card-meta">${meta}</div>
       <div class="card-foot">
         <div class="card-links">${links.join("")}</div>
@@ -110,11 +110,16 @@ function buildFilters(projects: Project[]): FilterDef[] {
     { key: "featured", label: "Featured", match: (p) => p.isFeatured },
     { key: "live", label: "Live", match: (p) => p.status === "live" },
     { key: "no-demo", label: "No Demo", match: (p) => p.status === "no-demo" },
-    { key: "archived", label: "Archived", match: (p) => p.status === "archived" },
+    {
+      key: "archived",
+      label: "Archived",
+      match: (p) => p.status === "archived",
+    },
   ];
 
-  const categories = [...new Set(projects.map((p) => p.category).filter(Boolean))]
-    .sort() as string[];
+  const categories = [
+    ...new Set(projects.map((p) => p.category).filter(Boolean)),
+  ].sort() as string[];
   for (const cat of categories) {
     base.push({
       key: `cat:${cat}`,
@@ -132,7 +137,8 @@ function sortProjects(projects: Project[], key: SortKey): Project[] {
   switch (key) {
     case "updated":
       return arr.sort(
-        (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+        (a, b) =>
+          new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
       );
     case "stars":
       return arr.sort((a, b) => b.stars - a.stars);
@@ -309,7 +315,9 @@ export async function mountDetail(app: HTMLElement, p: Project): Promise<void> {
   );
 
   const facts = [
-    p.language ? `<span class="fact"><span class="k">Language</span> ${esc(p.language)}</span>` : "",
+    p.language
+      ? `<span class="fact"><span class="k">Language</span> ${esc(p.language)}</span>`
+      : "",
     `<span class="fact"><span class="k">Stars</span> <span class="num">${p.stars}</span></span>`,
     `<span class="fact"><span class="k">Forks</span> <span class="num">${p.forks}</span></span>`,
     `<span class="fact"><span class="k">Updated</span> ${monthYear(p.updatedAt)}</span>`,
@@ -351,7 +359,9 @@ export async function mountDetail(app: HTMLElement, p: Project): Promise<void> {
       </article>
     </div>`;
 
-  app.querySelector<HTMLButtonElement>("#back")!.addEventListener("click", goHome);
+  app
+    .querySelector<HTMLButtonElement>("#back")!
+    .addEventListener("click", goHome);
 
   if (p.hasReadme && p.readmeUrl) {
     const target = app.querySelector<HTMLElement>("#readme")!;

@@ -3,9 +3,7 @@
 //   #/p/<slug>    → project detail
 // Hash routing needs no server rewrites, so it works on any static host.
 
-export type Route =
-  | { name: "home" }
-  | { name: "detail"; slug: string };
+export type Route = { name: "home" } | { name: "detail"; slug: string };
 
 export function parseHash(hash: string): Route {
   const path = hash.replace(/^#/, "").replace(/^\/+/, "");
