@@ -8,8 +8,8 @@
  *   public/data/projects.json        final merged + sorted project list
  *
  * README markdown is NOT downloaded here — each project carries a `readmeUrl`
- * that the detail page fetches live in the browser. The per-project `show` flag
- * is preserved across re-syncs so hand edits survive.
+ * that the detail page fetches live in the browser. The per-project `show` and
+ * `isFeatured` flags are preserved across re-syncs so hand edits survive.
  *
  * Designed to never hard-fail the build for transient issues: on a failed fetch
  * it falls back to the previously committed projects.json so a flaky GitHub API
@@ -243,17 +243,27 @@ async function readOverrides(): Promise<OverridesFile> {
   }
 }
 
+/** Hand-editable flags rescued from the previous projects.json, keyed by repoName. */
+interface PreservedFlags {
+  show?: boolean;
+  isFeatured?: boolean;
+}
+
 /**
- * Read the `show` flag committed for each repo in the previous projects.json so
- * hand edits survive re-sync. Keyed by repoName.
+ * Read the flags committed for each repo in the previous projects.json so hand
+ * edits survive re-sync. Both `show` and `isFeatured` can be flipped directly in
+ * projects.json and are carried over here. Keyed by repoName.
  */
-async function readPreviousShow(): Promise<Map<string, boolean>> {
-  const map = new Map<string, boolean>();
+async function readPreviousFlags(): Promise<Map<string, PreservedFlags>> {
+  const map = new Map<string, PreservedFlags>();
   if (!existsSync(PROJECTS_OUT)) return map;
   try {
     const prev = JSON.parse(await readFile(PROJECTS_OUT, "utf8")) as Project[];
     for (const p of prev) {
-      if (typeof p.show === "boolean") map.set(p.repoName, p.show);
+      const flags: PreservedFlags = {};
+      if (typeof p.show === "boolean") flags.show = p.show;
+      if (typeof p.isFeatured === "boolean") flags.isFeatured = p.isFeatured;
+      map.set(p.repoName, flags);
     }
   } catch {
     // Unreadable previous file → just fall back to defaults.
@@ -280,7 +290,7 @@ async function main() {
     `> syncing github.com/${USER}${TOKEN ? " (authenticated)" : " (anonymous)"}`,
   );
   const overrides = await readOverrides();
-  const previousShow = await readPreviousShow();
+  const previousFlags = await readPreviousFlags();
 
   let repos: GhRepo[];
   try {
@@ -311,8 +321,9 @@ async function main() {
 
     const liveUrl = detectLiveUrl(repo, override, pagesUrl);
 
-    // Preserve a hand-edited `show`; otherwise fall back to the default.
-    const show = previousShow.get(repo.name) ?? defaultShow(repo, override);
+    // Preserve hand edits to `show`/`isFeatured`; otherwise fall back to defaults.
+    const prev = previousFlags.get(repo.name);
+    const show = prev?.show ?? defaultShow(repo, override);
 
     const base: Project = {
       id: String(repo.id),
@@ -329,7 +340,7 @@ async function main() {
       forks: repo.forks_count,
       isArchived: repo.archived,
       isFork: repo.fork,
-      isFeatured: false,
+      isFeatured: prev?.isFeatured ?? false,
       show,
       status: deriveStatus(repo, liveUrl),
       hasReadme: readmeUrl != null,

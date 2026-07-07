@@ -26,6 +26,11 @@ export interface Project {
 
   isArchived: boolean;
   isFork: boolean;
+  /**
+   * Whether this project is featured. Editable by hand directly in projects.json
+   * and PRESERVED across re-sync (like `show`). An override's `featured` flag, if
+   * set, still wins over the preserved value.
+   */
   isFeatured: boolean;
 
   /**
