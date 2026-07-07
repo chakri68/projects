@@ -308,6 +308,21 @@ a:hover {
   padding: 14px;
   transition: border-color 0.12s;
 }
+/* Staggered pop-in of grid cards as search/filter results settle. */
+#grid .card {
+  animation: card-in 0.34s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 28ms);
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 .card:hover {
   border-color: var(--accent-dim);
 }

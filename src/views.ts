@@ -222,7 +222,7 @@ export function mountHome(app: HTMLElement, projects: Project[]): void {
 
       ${
         featured.length
-          ? `<section class="section">
+          ? `<section class="section" id="featured-section">
                <h2 class="section-head">Featured</h2>
                <div class="grid">${featured.map(cardHtml).join("")}</div>
              </section>`
@@ -230,7 +230,7 @@ export function mountHome(app: HTMLElement, projects: Project[]): void {
       }
 
       <section class="section">
-        <h2 class="section-head">All Projects <span class="count" id="count"></span></h2>
+        <h2 class="section-head"><span id="grid-head">All Projects</span> <span class="count" id="count"></span></h2>
         <div class="grid" id="grid"></div>
       </section>
 
@@ -248,6 +248,8 @@ export function mountHome(app: HTMLElement, projects: Project[]): void {
   const search = app.querySelector<HTMLInputElement>("#search")!;
   const chips = app.querySelector<HTMLElement>("#chips")!;
   const sort = app.querySelector<HTMLSelectElement>("#sort")!;
+  const featuredSection = app.querySelector<HTMLElement>("#featured-section");
+  const gridHead = app.querySelector<HTMLElement>("#grid-head")!;
 
   function render() {
     const def = filters.find((f) => f.key === state.filter) ?? filters[0];
@@ -255,9 +257,21 @@ export function mountHome(app: HTMLElement, projects: Project[]): void {
       (p) => def.match(p) && matchesQuery(p, state.query),
     );
     const sorted = sortProjects(filtered, state.sort);
+
+    // A search or non-default filter means the user is looking for something
+    // specific — the Featured shelf just gets in the way, so hide it and let the
+    // full matching set (featured included) show in one place.
+    const isBrowsing = state.query.trim() === "" && state.filter === "all";
+    if (featuredSection) featuredSection.hidden = !isBrowsing;
+    gridHead.textContent = isBrowsing ? "All Projects" : "Results";
+
     grid.innerHTML = sorted.length
       ? sorted.map(cardHtml).join("")
       : `<p class="empty">No projects match — clear the search or pick another filter.</p>`;
+    // Stagger the pop-in; cap the index so long lists don't crawl in.
+    grid.querySelectorAll<HTMLElement>(".card").forEach((card, i) => {
+      card.style.setProperty("--i", String(Math.min(i, 12)));
+    });
     count.textContent = `(${sorted.length})`;
   }
 
