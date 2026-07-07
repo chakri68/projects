@@ -57,6 +57,18 @@ GITHUB_TOKEN=ghp_xxx npm run sync:github
 `.github/workflows/sync-projects.yml` runs the sync daily (and on demand) with
 the built-in `GITHUB_TOKEN` and commits any data changes.
 
+## Deployment
+
+`.github/workflows/deploy.yml` builds and deploys to **GitHub Pages on every push
+to `master`** (Node `24.11.1`). `npm run build` re-syncs from GitHub first, so each
+deploy publishes a fresh catalog.
+
+- **Custom domain (default):** `public/CNAME` is set to `projects.chakri.me` and the
+  Vite `base` is `/`. Point that subdomain's DNS at GitHub Pages and enable Pages
+  (Settings → Pages → Source: GitHub Actions).
+- **Project-pages subpath instead** (`chakri68.github.io/projects/`): delete
+  `public/CNAME` and set `VITE_BASE=/projects/` in the deploy workflow's build step.
+
 ## Curation
 
 Edit `data/project-overrides.json`, keyed by repo name. Any repo can set:
