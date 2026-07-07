@@ -4,11 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "sync:github": "tsx scripts/sync-github.ts",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run sync:github && tsc && vite build",
+    "build:nosync": "tsc && vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "marked": "^14.1.4"
+  },
   "devDependencies": {
+    "tsx": "^4.23.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
   }

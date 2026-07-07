@@ -1,0 +1,41 @@
+name: Sync GitHub Projects
+
+# Refreshes public/data (projects.json + READMEs) from GitHub and commits any
+# changes. Runs daily and on demand. The built-in GITHUB_TOKEN gives the sync
+# 5000 req/hr (vs 60 anonymous), so README fetches don't get rate-limited.
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Sync from GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: chakri68
+        run: npm run sync:github
+      - name: Verify it still builds
+        run: npm run build:nosync
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- public/data; then
+            git add public/data
+            git commit -m "chore: sync GitHub projects data"
+            git push
+          else
+            echo "No data changes."
+          fi

@@ -1,0 +1,11 @@
+{
+  "$schema-note": "Keyed by GitHub repo name. Each value may set: title, description, category, tags[], featured, hidden, status, coverImage, liveUrl, repoUrl, order. Keys that don't match a repo are ignored. Example below is inert unless you own a repo named 'boirds-simulation'.",
+  "boirds-simulation": {
+    "title": "Boirds Simulation",
+    "description": "A flocking simulation inspired by emergent behavior in bird groups.",
+    "category": "Simulation",
+    "featured": true,
+    "tags": ["Simulation", "Canvas", "Artificial Life"],
+    "order": 0
+  }
+}

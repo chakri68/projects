@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>projects</title>
+    <meta
+      name="description"
+      content="Chakri Labs — a living archive of projects, experiments, simulations, tools, and side quests."
+    />
+    <title>Chakri Labs</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Pixel font: display=block so it never flashes a layout-shifting fallback. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=block"
+      rel="stylesheet"
+    />
+    <!-- Body mono: display=swap. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- Intro overlay lives in the DOM from first paint so the app never flashes
+         unstyled; JS adds .booted once the pixel font has loaded. -->
+    <div id="intro" class="intro booting" aria-hidden="true">
+      <div class="intro-title">CHAKRI LABS</div>
+    </div>
+
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
