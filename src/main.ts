@@ -9,6 +9,11 @@ const app = document.querySelector<HTMLDivElement>("#app")!;
 let projects: Project[] = [];
 let bySlug = new Map<string, Project>();
 
+// Remember where the list was scrolled so opening a project and coming back
+// lands you where you left off instead of at the top.
+let prevRoute: Route = currentRoute();
+let homeScroll = 0;
+
 async function loadProjects(): Promise<Project[]> {
   const res = await fetch(`${BASE}data/projects.json`);
   if (!res.ok) throw new Error(`projects.json ${res.status}`);
@@ -16,16 +21,21 @@ async function loadProjects(): Promise<Project[]> {
 }
 
 function applyRoute(r: Route): void {
-  window.scrollTo(0, 0);
-  if (r.name === "detail") {
-    const project = bySlug.get(r.slug);
-    if (project) {
-      // Renders the skeleton synchronously; README loads + animates after.
-      void mountDetail(app, project);
-      return;
-    }
+  // Snapshot the list position before we tear down the DOM, so a later
+  // back-nav can restore it. scrollY is still the old page's here.
+  if (prevRoute.name === "home") homeScroll = window.scrollY;
+
+  const project = r.name === "detail" ? bySlug.get(r.slug) : undefined;
+  if (project) {
+    // Renders the skeleton synchronously; README loads + animates after.
+    void mountDetail(app, project);
+    window.scrollTo(0, 0);
+  } else {
+    mountHome(app, projects);
+    // Coming back from a detail → restore; a fresh home load → top.
+    window.scrollTo(0, prevRoute.name === "detail" ? homeScroll : 0);
   }
-  mountHome(app, projects);
+  prevRoute = r;
 }
 
 // Morph between home and detail via the View Transitions API where supported;
