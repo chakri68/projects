@@ -297,7 +297,7 @@
     "isArchived": false,
     "isFork": false,
     "isFeatured": false,
-    "show": true,
+    "show": false,
     "status": "live",
     "hasReadme": true,
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/light-speed/master/README.md",
@@ -337,14 +337,8 @@
     "description": "Config files for my GitHub profile.",
     "repoUrl": "https://github.com/chakri68/chakri68",
     "liveUrl": "https://github.com/chakri68",
-    "tags": [
-      "config",
-      "github-config"
-    ],
-    "topics": [
-      "config",
-      "github-config"
-    ],
+    "tags": ["config", "github-config"],
+    "topics": ["config", "github-config"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -414,19 +408,9 @@
     "description": "A demonstration of A* and BFS search in the 8-puzzle game",
     "repoUrl": "https://github.com/chakri68/sliding-puzzle",
     "liveUrl": "https://chakri.me/sliding-puzzle/",
-    "tags": [
-      "8-puzzle-solver",
-      "a-star-algorithm",
-      "uni",
-      "visualization"
-    ],
+    "tags": ["8-puzzle-solver", "a-star-algorithm", "uni", "visualization"],
     "language": "TypeScript",
-    "topics": [
-      "8-puzzle-solver",
-      "a-star-algorithm",
-      "uni",
-      "visualization"
-    ],
+    "topics": ["8-puzzle-solver", "a-star-algorithm", "uni", "visualization"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -678,17 +662,9 @@
     "description": "A simple website to visualize line drawing algorithms",
     "repoUrl": "https://github.com/chakri68/pixel-drawing-sim",
     "liveUrl": "https://chakri68.github.io/pixel-drawing-sim/",
-    "tags": [
-      "canvas",
-      "line-drawing",
-      "uni"
-    ],
+    "tags": ["canvas", "line-drawing", "uni"],
     "language": "TypeScript",
-    "topics": [
-      "canvas",
-      "line-drawing",
-      "uni"
-    ],
+    "topics": ["canvas", "line-drawing", "uni"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -804,15 +780,9 @@
     "description": "A small r/place canvas clone",
     "repoUrl": "https://github.com/chakri68/socket-pixels",
     "liveUrl": "https://socket-pixels.vercel.app",
-    "tags": [
-      "socket-io",
-      "sveltekit"
-    ],
+    "tags": ["socket-io", "sveltekit"],
     "language": "Svelte",
-    "topics": [
-      "socket-io",
-      "sveltekit"
-    ],
+    "topics": ["socket-io", "sveltekit"],
     "stars": 1,
     "forks": 0,
     "isArchived": false,
@@ -898,19 +868,9 @@
     "description": null,
     "repoUrl": "https://github.com/chakri68/gdsc-web-orientation-event",
     "liveUrl": "https://gdsc-css-exp.vercel.app",
-    "tags": [
-      "css",
-      "event",
-      "framer-motion",
-      "uni"
-    ],
+    "tags": ["css", "event", "framer-motion", "uni"],
     "language": "TypeScript",
-    "topics": [
-      "css",
-      "event",
-      "framer-motion",
-      "uni"
-    ],
+    "topics": ["css", "event", "framer-motion", "uni"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -932,17 +892,9 @@
     "description": "Addon for firefox for codeCollab code-editor",
     "repoUrl": "https://github.com/chakri68/code-collab-ext",
     "liveUrl": "https://addons.mozilla.org/en-US/firefox/addon/codecollab-extension/",
-    "tags": [
-      "add-ons-for-firefox",
-      "codecollab",
-      "tools"
-    ],
+    "tags": ["add-ons-for-firefox", "codecollab", "tools"],
     "language": "CSS",
-    "topics": [
-      "add-ons-for-firefox",
-      "codecollab",
-      "tools"
-    ],
+    "topics": ["add-ons-for-firefox", "codecollab", "tools"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -964,17 +916,9 @@
     "description": "A website to view your top spotify songs",
     "repoUrl": "https://github.com/chakri68/spotify-stats",
     "liveUrl": "https://musicstats.vercel.app",
-    "tags": [
-      "nextjs",
-      "spotify",
-      "spotify-web-api"
-    ],
+    "tags": ["nextjs", "spotify", "spotify-web-api"],
     "language": "JavaScript",
-    "topics": [
-      "nextjs",
-      "spotify",
-      "spotify-web-api"
-    ],
+    "topics": ["nextjs", "spotify", "spotify-web-api"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -1460,19 +1404,9 @@
     "title": "WindowsCustomizer",
     "description": "Collection of tricks to personalize Windows",
     "repoUrl": "https://github.com/chakri68/WindowsCustomizer",
-    "tags": [
-      "custom-scripts",
-      "customization",
-      "powershell",
-      "windows"
-    ],
+    "tags": ["custom-scripts", "customization", "powershell", "windows"],
     "language": "PowerShell",
-    "topics": [
-      "custom-scripts",
-      "customization",
-      "powershell",
-      "windows"
-    ],
+    "topics": ["custom-scripts", "customization", "powershell", "windows"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -1528,21 +1462,9 @@
     "title": "webcomponents-template",
     "description": "Template for web-component development",
     "repoUrl": "https://github.com/chakri68/webcomponents-template",
-    "tags": [
-      "lit",
-      "storybook",
-      "template",
-      "vite",
-      "webcomponents"
-    ],
+    "tags": ["lit", "storybook", "template", "vite", "webcomponents"],
     "language": "TypeScript",
-    "topics": [
-      "lit",
-      "storybook",
-      "template",
-      "vite",
-      "webcomponents"
-    ],
+    "topics": ["lit", "storybook", "template", "vite", "webcomponents"],
     "stars": 0,
     "forks": 1,
     "isArchived": false,
@@ -1804,14 +1726,7 @@
     "title": "socket-pixels-server",
     "description": "Backend for socket-pixels - a small scale r/place canvas clone",
     "repoUrl": "https://github.com/chakri68/socket-pixels-server",
-    "tags": [
-      "canvas",
-      "fastify",
-      "monogdb",
-      "nodejs",
-      "socket-io",
-      "tingodb"
-    ],
+    "tags": ["canvas", "fastify", "monogdb", "nodejs", "socket-io", "tingodb"],
     "language": "JavaScript",
     "topics": [
       "canvas",
@@ -1887,21 +1802,9 @@
     "title": "9anime-tool",
     "description": "A node cli to download anime from 9anime.vc",
     "repoUrl": "https://github.com/chakri68/9anime-tool",
-    "tags": [
-      "chalk-animation",
-      "ffmpeg",
-      "inquirer",
-      "nodejs",
-      "puppeteer"
-    ],
+    "tags": ["chalk-animation", "ffmpeg", "inquirer", "nodejs", "puppeteer"],
     "language": "JavaScript",
-    "topics": [
-      "chalk-animation",
-      "ffmpeg",
-      "inquirer",
-      "nodejs",
-      "puppeteer"
-    ],
+    "topics": ["chalk-animation", "ffmpeg", "inquirer", "nodejs", "puppeteer"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -2197,19 +2100,9 @@
     "description": "A cool UI bundled with Webpack. Contains some real nice UI elements I made using SCSS",
     "repoUrl": "https://github.com/chakri68/finance-tracker",
     "liveUrl": "https://chakri68.github.io/finance-tracker/",
-    "tags": [
-      "modular",
-      "scss",
-      "ui-components",
-      "webpack"
-    ],
+    "tags": ["modular", "scss", "ui-components", "webpack"],
     "language": "JavaScript",
-    "topics": [
-      "modular",
-      "scss",
-      "ui-components",
-      "webpack"
-    ],
+    "topics": ["modular", "scss", "ui-components", "webpack"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -2230,17 +2123,9 @@
     "description": "A simple linear regression line generator",
     "repoUrl": "https://github.com/chakri68/linear-regression-sim",
     "liveUrl": "https://chakri68.github.io/linear-regression-sim/",
-    "tags": [
-      "linear-regression",
-      "uni",
-      "visualization"
-    ],
+    "tags": ["linear-regression", "uni", "visualization"],
     "language": "TypeScript",
-    "topics": [
-      "linear-regression",
-      "uni",
-      "visualization"
-    ],
+    "topics": ["linear-regression", "uni", "visualization"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -2416,23 +2301,9 @@
     "title": "webpack-babel-template",
     "description": "Webpack Template for TypeScript, SCSS, gh-pages",
     "repoUrl": "https://github.com/chakri68/webpack-babel-template",
-    "tags": [
-      "gh-pages",
-      "sass",
-      "scss",
-      "template",
-      "typescript",
-      "webpack"
-    ],
+    "tags": ["gh-pages", "sass", "scss", "template", "typescript", "webpack"],
     "language": "JavaScript",
-    "topics": [
-      "gh-pages",
-      "sass",
-      "scss",
-      "template",
-      "typescript",
-      "webpack"
-    ],
+    "topics": ["gh-pages", "sass", "scss", "template", "typescript", "webpack"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
@@ -2452,17 +2323,9 @@
     "title": "pareto-optimal-fronts",
     "description": "Code for MultiObjectiveOptimizationClass",
     "repoUrl": "https://github.com/chakri68/pareto-optimal-fronts",
-    "tags": [
-      "genetic-algorithms",
-      "pareto-front",
-      "uni"
-    ],
+    "tags": ["genetic-algorithms", "pareto-front", "uni"],
     "language": "TypeScript",
-    "topics": [
-      "genetic-algorithms",
-      "pareto-front",
-      "uni"
-    ],
+    "topics": ["genetic-algorithms", "pareto-front", "uni"],
     "stars": 0,
     "forks": 0,
     "isArchived": false,
