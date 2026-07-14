@@ -77,8 +77,12 @@
          and its styles are applied, then reveal — kills the flash of unstyled
          HTML (Vite injects CSS via JS in dev; also guards a slow first load). -->
     <style>
-      html { background: #000; }
-      body { visibility: hidden; }
+      html {
+        background: #000;
+      }
+      body {
+        visibility: hidden;
+      }
     </style>
     <script>
       addEventListener("DOMContentLoaded", function () {
@@ -87,9 +91,23 @@
         });
       });
     </script>
-    <noscript><style>body { visibility: visible; }</style></noscript>
+    <noscript
+      ><style>
+        body {
+          visibility: visible;
+        }
+      </style></noscript
+    >
     <!-- Amber Phosphor theme tokens — single source of truth -->
     <link rel="stylesheet" href="https://theme.chakri.me/tokens.css" />
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "7bce63c8736444e9bfaf2abb46594192"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
   </head>
   <body>
     <!-- Intro overlay lives in the DOM from first paint so the app never flashes
