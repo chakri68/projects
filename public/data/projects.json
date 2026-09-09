@@ -258,6 +258,30 @@
     "pushedAt": "2025-10-04T16:47:19Z"
   },
   {
+    "id": "1292463261",
+    "repoName": "projects",
+    "slug": "projects",
+    "title": "projects",
+    "description": "List of all my projects",
+    "repoUrl": "https://github.com/chakri68/projects",
+    "liveUrl": "http://projects.chakri.me/",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": false,
+    "status": "live",
+    "hasReadme": true,
+    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
+    "createdAt": "2026-07-07T14:45:12Z",
+    "updatedAt": "2026-09-08T08:01:12Z",
+    "pushedAt": "2026-09-08T07:59:46Z"
+  },
+  {
     "id": "987003003",
     "repoName": "resume",
     "slug": "resume",
@@ -280,30 +304,6 @@
     "createdAt": "2025-05-20T12:37:04Z",
     "updatedAt": "2026-09-08T06:14:23Z",
     "pushedAt": "2026-09-08T06:13:56Z"
-  },
-  {
-    "id": "1292463261",
-    "repoName": "projects",
-    "slug": "projects",
-    "title": "projects",
-    "description": "List of all my projects",
-    "repoUrl": "https://github.com/chakri68/projects",
-    "liveUrl": "http://projects.chakri.me/",
-    "tags": [],
-    "language": "TypeScript",
-    "topics": [],
-    "stars": 0,
-    "forks": 0,
-    "isArchived": false,
-    "isFork": false,
-    "isFeatured": false,
-    "show": false,
-    "status": "live",
-    "hasReadme": true,
-    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
-    "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-09-07T08:11:31Z",
-    "pushedAt": "2026-09-07T08:11:14Z"
   },
   {
     "id": "1359265091",
@@ -524,7 +524,7 @@
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/chakri68/main/README.md",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-09-08T03:16:23Z"
+    "pushedAt": "2026-09-09T03:19:30Z"
   },
   {
     "id": "1261918394",
