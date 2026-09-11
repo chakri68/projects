@@ -258,6 +258,30 @@
     "pushedAt": "2025-10-04T16:47:19Z"
   },
   {
+    "id": "1366201611",
+    "repoName": "sudoku",
+    "slug": "sudoku",
+    "title": "sudoku",
+    "description": null,
+    "repoUrl": "https://github.com/chakri68/sudoku",
+    "liveUrl": "https://sudoku.chakri.me/",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": true,
+    "status": "live",
+    "hasReadme": true,
+    "readmeUrl": "https://raw.githubusercontent.com/chakri68/sudoku/master/README.md",
+    "createdAt": "2026-09-11T13:44:36Z",
+    "updatedAt": "2026-09-11T13:58:43Z",
+    "pushedAt": "2026-09-11T13:58:38Z"
+  },
+  {
     "id": "1292463261",
     "repoName": "projects",
     "slug": "projects",
@@ -278,8 +302,8 @@
     "hasReadme": true,
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
     "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-09-10T08:03:58Z",
-    "pushedAt": "2026-09-10T08:03:36Z"
+    "updatedAt": "2026-09-11T07:58:50Z",
+    "pushedAt": "2026-09-11T07:58:46Z"
   },
   {
     "id": "987003003",
