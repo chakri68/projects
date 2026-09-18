@@ -173,8 +173,8 @@ function matchesQuery(p: Project, q: string): boolean {
 
 export function mountHome(app: HTMLElement, projects: Project[]): void {
   setDocumentMeta(
-    "Chakri Labs — Project Archive",
-    "A living archive of projects, experiments, simulations, tools, and side quests — automatically catalogued from GitHub.",
+    "Chakri Labs: Project Archive",
+    "A living archive of projects, experiments, simulations, tools, and side quests, automatically catalogued from GitHub.",
   );
   const filters = buildFilters(projects);
   const state = { filter: "all", query: "", sort: "curated" as SortKey };
@@ -316,7 +316,7 @@ export function mountHome(app: HTMLElement, projects: Project[]): void {
 export async function mountDetail(app: HTMLElement, p: Project): Promise<void> {
   setDocumentMeta(
     `${p.title} · Chakri Labs`,
-    p.description ?? `${p.title} — a project in the Chakri Labs archive.`,
+    p.description ?? `${p.title} is a project in the Chakri Labs archive.`,
   );
   const links: string[] = [];
   if (p.liveUrl) {
