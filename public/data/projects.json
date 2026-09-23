@@ -258,6 +258,30 @@
     "pushedAt": "2025-10-04T16:47:19Z"
   },
   {
+    "id": "1292463261",
+    "repoName": "projects",
+    "slug": "projects",
+    "title": "projects",
+    "description": "List of all my projects",
+    "repoUrl": "https://github.com/chakri68/projects",
+    "liveUrl": "http://projects.chakri.me/",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": false,
+    "status": "live",
+    "hasReadme": true,
+    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
+    "createdAt": "2026-07-07T14:45:12Z",
+    "updatedAt": "2026-09-22T08:27:05Z",
+    "pushedAt": "2026-09-22T08:27:00Z"
+  },
+  {
     "id": "1146942338",
     "repoName": "modern-abt-me",
     "slug": "modern-abt-me",
@@ -280,30 +304,6 @@
     "createdAt": "2026-01-31T23:36:29Z",
     "updatedAt": "2026-09-21T18:54:55Z",
     "pushedAt": "2026-09-21T18:54:51Z"
-  },
-  {
-    "id": "1292463261",
-    "repoName": "projects",
-    "slug": "projects",
-    "title": "projects",
-    "description": "List of all my projects",
-    "repoUrl": "https://github.com/chakri68/projects",
-    "liveUrl": "http://projects.chakri.me/",
-    "tags": [],
-    "language": "TypeScript",
-    "topics": [],
-    "stars": 0,
-    "forks": 0,
-    "isArchived": false,
-    "isFork": false,
-    "isFeatured": false,
-    "show": false,
-    "status": "live",
-    "hasReadme": true,
-    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
-    "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-09-21T08:49:44Z",
-    "pushedAt": "2026-09-21T08:49:40Z"
   },
   {
     "id": "987003003",
@@ -548,7 +548,7 @@
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/chakri68/main/README.md",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-09-22T03:32:09Z"
+    "pushedAt": "2026-09-23T03:32:19Z"
   },
   {
     "id": "1261918394",
