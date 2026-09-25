@@ -278,8 +278,8 @@
     "hasReadme": true,
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
     "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-09-23T08:29:11Z",
-    "pushedAt": "2026-09-23T08:29:04Z"
+    "updatedAt": "2026-09-24T08:21:30Z",
+    "pushedAt": "2026-09-24T08:21:26Z"
   },
   {
     "id": "1146942338",
@@ -548,7 +548,7 @@
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/chakri68/main/README.md",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-09-24T03:22:35Z"
+    "pushedAt": "2026-09-25T03:39:53Z"
   },
   {
     "id": "1261918394",
@@ -2536,6 +2536,28 @@
     "createdAt": "2022-12-06T14:39:39Z",
     "updatedAt": "2022-12-06T14:40:53Z",
     "pushedAt": "2022-12-06T14:41:33Z"
+  },
+  {
+    "id": "1385079201",
+    "repoName": "party",
+    "slug": "party",
+    "title": "party",
+    "description": null,
+    "repoUrl": "https://github.com/chakri68/party",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": true,
+    "status": "wip",
+    "hasReadme": false,
+    "createdAt": "2026-09-24T08:38:57Z",
+    "updatedAt": "2026-09-25T05:20:31Z",
+    "pushedAt": "2026-09-25T05:20:26Z"
   },
   {
     "id": "821838553",
