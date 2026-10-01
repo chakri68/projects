@@ -278,8 +278,8 @@
     "hasReadme": true,
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
     "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-09-29T09:43:08Z",
-    "pushedAt": "2026-09-29T09:43:03Z"
+    "updatedAt": "2026-09-30T09:34:35Z",
+    "pushedAt": "2026-09-30T09:34:31Z"
   },
   {
     "id": "1146942338",
@@ -548,7 +548,7 @@
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/chakri68/main/README.md",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-09-30T04:12:46Z"
+    "pushedAt": "2026-10-01T04:24:37Z"
   },
   {
     "id": "1261918394",
@@ -2559,28 +2559,6 @@
     "createdAt": "2022-12-06T14:39:39Z",
     "updatedAt": "2022-12-06T14:40:53Z",
     "pushedAt": "2022-12-06T14:41:33Z"
-  },
-  {
-    "id": "1390328926",
-    "repoName": "rant",
-    "slug": "rant",
-    "title": "rant",
-    "description": null,
-    "repoUrl": "https://github.com/chakri68/rant",
-    "tags": [],
-    "language": "TypeScript",
-    "topics": [],
-    "stars": 0,
-    "forks": 0,
-    "isArchived": false,
-    "isFork": false,
-    "isFeatured": false,
-    "show": true,
-    "status": "wip",
-    "hasReadme": false,
-    "createdAt": "2026-09-27T06:55:17Z",
-    "updatedAt": "2026-09-29T20:15:03Z",
-    "pushedAt": "2026-09-29T20:14:59Z"
   },
   {
     "id": "821838553",
