@@ -258,6 +258,30 @@
     "pushedAt": "2025-10-04T16:47:19Z"
   },
   {
+    "id": "1292463261",
+    "repoName": "projects",
+    "slug": "projects",
+    "title": "projects",
+    "description": "List of all my projects",
+    "repoUrl": "https://github.com/chakri68/projects",
+    "liveUrl": "http://projects.chakri.me/",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": false,
+    "status": "live",
+    "hasReadme": true,
+    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
+    "createdAt": "2026-07-07T14:45:12Z",
+    "updatedAt": "2026-10-02T09:37:49Z",
+    "pushedAt": "2026-10-02T09:37:45Z"
+  },
+  {
     "id": "1308057449",
     "repoName": "collections",
     "slug": "collections",
@@ -280,30 +304,6 @@
     "createdAt": "2026-07-21T19:31:38Z",
     "updatedAt": "2026-10-01T17:22:14Z",
     "pushedAt": "2026-10-01T17:22:11Z"
-  },
-  {
-    "id": "1292463261",
-    "repoName": "projects",
-    "slug": "projects",
-    "title": "projects",
-    "description": "List of all my projects",
-    "repoUrl": "https://github.com/chakri68/projects",
-    "liveUrl": "http://projects.chakri.me/",
-    "tags": [],
-    "language": "TypeScript",
-    "topics": [],
-    "stars": 0,
-    "forks": 0,
-    "isArchived": false,
-    "isFork": false,
-    "isFeatured": false,
-    "show": false,
-    "status": "live",
-    "hasReadme": true,
-    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
-    "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-10-01T10:00:58Z",
-    "pushedAt": "2026-10-01T10:00:54Z"
   },
   {
     "id": "1146942338",
@@ -548,7 +548,7 @@
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/chakri68/main/README.md",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-10-02T04:17:20Z"
+    "pushedAt": "2026-10-03T03:59:39Z"
   },
   {
     "id": "1261918394",
