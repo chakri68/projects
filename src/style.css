@@ -295,8 +295,7 @@ a:hover {
   overflow: hidden;
   transition:
     background 0.18s,
-    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.18s;
+    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 /* Staggered pop-in of grid cards as search/filter results settle. */
 #grid .card {
@@ -321,7 +320,6 @@ a:hover {
 }
 .card.clickable:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 40px -12px rgba(255, 176, 0, 0.18);
 }
 
 /* ---- Card cover -------------------------------------------------------- */
