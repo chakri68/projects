@@ -2,7 +2,8 @@
  * Build-time GitHub sync.
  *
  * Fetches all public repos for GITHUB_USER, detects each repo's README URL +
- * GitHub Pages metadata, detects a live URL, merges hand-authored overrides,
+ * GitHub Pages metadata, detects a live URL, scrapes that site's og:image and
+ * description for the card, merges hand-authored overrides,
  * sorts, and writes the single committed file the site reads:
  *
  *   public/data/projects.json        final merged + sorted project list
@@ -146,6 +147,65 @@ async function fetchPagesUrl(
   return data.html_url ?? null;
 }
 
+/** What we lift off a live site's <head> to make its card say something. */
+interface SiteMeta {
+  image?: string;
+  description?: string;
+}
+
+function decodeEntities(s: string): string {
+  return s
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
+}
+
+/** Content of the first <meta> whose property/name is one of `keys`. */
+function metaContent(html: string, keys: string[]): string | undefined {
+  for (const tag of html.match(/<meta\b[^>]*>/gi) ?? []) {
+    const key = tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1];
+    if (!key || !keys.includes(key.toLowerCase())) continue;
+    const content = tag.match(/\bcontent\s*=\s*(["'])([\s\S]*?)\1/i)?.[2];
+    if (content?.trim()) return decodeEntities(content.trim());
+  }
+  return undefined;
+}
+
+/**
+ * Fetch a live site's HTML and pull its og:image + description. Best-effort:
+ * null means the site couldn't be reached (so the last known cover is kept);
+ * {} means it answered but has nothing to offer.
+ */
+async function fetchSiteMeta(url: string): Promise<SiteMeta | null> {
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; chakri-labs-sync)" },
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) return null;
+    if (!res.headers.get("content-type")?.includes("html")) return {};
+    const head = (await res.text()).split(/<\/head>/i)[0];
+    const rawImage = metaContent(head, ["og:image", "og:image:url", "twitter:image"]);
+    // og:image is often relative; resolve against the final (post-redirect) URL.
+    const image = rawImage ? new URL(rawImage, res.url).href : undefined;
+    const description = metaContent(head, [
+      "og:description",
+      "description",
+      "twitter:description",
+    ]);
+    return {
+      image: isValidUrl(image) ? image : undefined,
+      description,
+    };
+  } catch {
+    return null;
+  }
+}
+
 // ---- Transforms ------------------------------------------------------------
 
 function slugify(name: string): string {
@@ -247,6 +307,9 @@ async function readOverrides(): Promise<OverridesFile> {
 interface PreservedFlags {
   show?: boolean;
   isFeatured?: boolean;
+  /** Last scraped cover + blurb, reused if the live site is down this sync. */
+  coverImage?: string;
+  description?: string;
 }
 
 /**
@@ -263,6 +326,8 @@ async function readPreviousFlags(): Promise<Map<string, PreservedFlags>> {
       const flags: PreservedFlags = {};
       if (typeof p.show === "boolean") flags.show = p.show;
       if (typeof p.isFeatured === "boolean") flags.isFeatured = p.isFeatured;
+      if (p.coverImage) flags.coverImage = p.coverImage;
+      if (p.description) flags.description = p.description;
       map.set(p.repoName, flags);
     }
   } catch {
@@ -320,6 +385,7 @@ async function main() {
     ]);
 
     const liveUrl = detectLiveUrl(repo, override, pagesUrl);
+    const site = liveUrl ? await fetchSiteMeta(liveUrl) : {};
 
     // Preserve hand edits to `show`/`isFeatured`; otherwise fall back to defaults.
     const prev = previousFlags.get(repo.name);
@@ -330,7 +396,11 @@ async function main() {
       repoName: repo.name,
       slug,
       title: repo.name,
-      description: repo.description,
+      // The repo blurb wins; otherwise borrow the live site's own pitch.
+      description:
+        repo.description ??
+        (site ? site.description : prev?.description) ??
+        null,
       repoUrl: repo.html_url,
       liveUrl,
       tags: repo.topics ?? [],
@@ -345,6 +415,7 @@ async function main() {
       status: deriveStatus(repo, liveUrl),
       hasReadme: readmeUrl != null,
       readmeUrl: readmeUrl ?? undefined,
+      coverImage: site ? site.image : prev?.coverImage,
       createdAt: repo.created_at,
       updatedAt: repo.updated_at,
       pushedAt: repo.pushed_at,

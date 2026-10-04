@@ -40,27 +40,46 @@ const STATUS_LABEL: Record<ProjectStatus, string> = {
   fork: "FORK",
 };
 
-function statusBadge(p: Project): string {
-  return `<span class="badge badge-${p.status}">${STATUS_LABEL[p.status]}</span>`;
+/** Live is the default state, so it gets no tag — only the exceptions do. */
+function statusTag(p: Project, cls: string): string {
+  if (p.status === "live") return "";
+  return `<span class="${cls} tag-${p.status}">${STATUS_LABEL[p.status]}</span>`;
+}
+
+function openLink(p: Project): string {
+  return p.liveUrl
+    ? `<a class="btn primary" href="${esc(p.liveUrl)}" target="_blank" rel="noopener">Open <span aria-hidden="true">&#8599;</span></a>`
+    : "";
 }
 
 // ---- card ------------------------------------------------------------------
 
-function cardHtml(p: Project): string {
-  const meta = [p.language, p.category, ...p.topics.slice(0, 2)]
-    .filter(Boolean)
-    .map((t) => esc(t as string))
-    .join(" · ");
+/**
+ * Cover art: the site's og:image when the sync found one. The terminal
+ * placeholder always renders underneath, so it shows while the image loads
+ * and takes over if the image 404s (see the error handler in mountHome).
+ */
+function mediaHtml(p: Project): string {
+  const img = p.coverImage
+    ? `<img class="card-img" src="${esc(p.coverImage)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`
+    : "";
+  return `
+    <div class="card-media">
+      <div class="card-ph" aria-hidden="true"><span>&gt; ${esc(p.title)}</span></div>
+      ${img}
+      ${statusTag(p, "media-tag")}
+    </div>`;
+}
 
-  const links: string[] = [];
-  if (p.liveUrl) {
-    links.push(
-      `<a class="btn primary" href="${esc(p.liveUrl)}" target="_blank" rel="noopener">Live Demo</a>`,
-    );
-  }
-  links.push(
-    `<a class="btn" href="${esc(p.repoUrl)}" target="_blank" rel="noopener">GitHub</a>`,
-  );
+function cardHtml(p: Project): string {
+  const meta = [p.language, p.category, monthYear(p.updatedAt)]
+    .filter(Boolean)
+    .map((t) => esc(t as string));
+  if (p.stars > 0) meta.push(`&#9733; <span class="num">${p.stars}</span>`);
+
+  const links =
+    openLink(p) +
+    `<a class="btn" href="${esc(p.repoUrl)}" target="_blank" rel="noopener">GitHub</a>`;
 
   // Whole card links to the detail page only when there's a README to show. The
   // clicked card's title is tagged with the shared transition name at click time
@@ -69,29 +88,16 @@ function cardHtml(p: Project): string {
     ? `<a class="card-title-link" href="#/p/${esc(p.slug)}">${esc(p.title)}</a>`
     : `<span class="card-title-plain">${esc(p.title)}</span>`;
 
-  const badges =
-    (p.isFeatured ? `<span class="badge badge-featured">FEATURED</span>` : "") +
-    statusBadge(p);
-
-  const stars =
-    p.stars > 0
-      ? `<span class="stat" title="stars">★ <span class="num">${p.stars}</span></span>`
-      : "";
-
   return `
     <article class="card${p.isFeatured ? " is-featured" : ""}${
       p.hasReadme ? " clickable" : ""
     }" data-slug="${esc(p.slug)}"${p.hasReadme ? ' data-nav="1"' : ""}>
-      <div class="card-badges">${badges}</div>
-      <h3 class="card-title">${titleHtml}</h3>
-      <p class="card-desc">${esc(p.description) || '<span class="muted">No description.</span>'}</p>
-      <div class="card-meta">${meta}</div>
-      <div class="card-foot">
-        <div class="card-links">${links.join("")}</div>
-        <div class="card-stats">
-          ${stars}
-          <span class="stat muted">Updated ${monthYear(p.updatedAt)}</span>
-        </div>
+      ${mediaHtml(p)}
+      <div class="card-body">
+        <h3 class="card-title">${titleHtml}</h3>
+        <p class="card-desc">${esc(p.description) || '<span class="muted">No description.</span>'}</p>
+        <div class="card-meta">${meta.join(" · ")}</div>
+        <div class="card-links">${links}</div>
       </div>
     </article>`;
 }
@@ -294,12 +300,26 @@ export function mountHome(app: HTMLElement, projects: Project[]): void {
     render();
   });
 
+  // A dead og:image just disappears, revealing the placeholder beneath it; a
+  // loaded one hides the placeholder's label (transparent icons let it bleed
+  // through otherwise). Neither event bubbles, hence capture-phase listeners.
+  const onCover = (e: Event) => {
+    const t = e.target;
+    if (!(t instanceof HTMLImageElement) || !t.classList.contains("card-img")) {
+      return;
+    }
+    if (e.type === "load") t.parentElement?.classList.add("loaded");
+    else t.remove();
+  };
+  app.addEventListener("load", onCover, true);
+  app.addEventListener("error", onCover, true);
+
   // Whole-card click (including the title link) navigates to the detail page;
   // the external action buttons still open normally. Tag the clicked title so it
   // — and only it — morphs into the detail heading.
   app.addEventListener("click", (e) => {
     const t = e.target as HTMLElement;
-    if (t.closest(".btn")) return; // Live Demo / GitHub open externally
+    if (t.closest(".btn")) return; // Open / GitHub links go external
     const card = t.closest<HTMLElement>(".card.clickable[data-nav]");
     if (!card?.dataset.slug) return;
     e.preventDefault(); // handle nav ourselves (covers the title <a>)
@@ -318,15 +338,9 @@ export async function mountDetail(app: HTMLElement, p: Project): Promise<void> {
     `${p.title} · Chakri Labs`,
     p.description ?? `${p.title} is a project in the Chakri Labs archive.`,
   );
-  const links: string[] = [];
-  if (p.liveUrl) {
-    links.push(
-      `<a class="btn primary" href="${esc(p.liveUrl)}" target="_blank" rel="noopener">Live Demo</a>`,
-    );
-  }
-  links.push(
-    `<a class="btn" href="${esc(p.repoUrl)}" target="_blank" rel="noopener">View on GitHub</a>`,
-  );
+  const links =
+    openLink(p) +
+    `<a class="btn" href="${esc(p.repoUrl)}" target="_blank" rel="noopener">View on GitHub</a>`;
 
   const facts = [
     p.language
@@ -353,15 +367,20 @@ export async function mountDetail(app: HTMLElement, p: Project): Promise<void> {
       <header class="detail-head">
         <div class="card-badges">
           ${p.isFeatured ? `<span class="badge badge-featured">FEATURED</span>` : ""}
-          ${statusBadge(p)}
+          ${statusTag(p, "badge")}
         </div>
         <h1 class="detail-title"${
           p.hasReadme ? ` style="view-transition-name: vt-active"` : ""
         }>${esc(p.title)}</h1>
         <p class="detail-desc">${esc(p.description) || ""}</p>
-        <div class="detail-links">${links.join("")}</div>
+        <div class="detail-links">${links}</div>
         <div class="facts">${facts}</div>
         ${tags}
+        ${
+          p.coverImage
+            ? `<img class="detail-cover" src="${esc(p.coverImage)}" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()" />`
+            : ""
+        }
       </header>
 
       <article class="readme" id="readme">
