@@ -284,8 +284,33 @@
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/collections/main/README.md",
     "coverImage": "https://lib.chakri.me/opengraph-image?12c8a5b64753b2af",
     "createdAt": "2026-07-21T19:31:38Z",
-    "updatedAt": "2026-10-04T11:34:42Z",
-    "pushedAt": "2026-10-04T11:34:38Z"
+    "updatedAt": "2026-10-05T07:13:31Z",
+    "pushedAt": "2026-10-05T07:13:27Z"
+  },
+  {
+    "id": "1292463261",
+    "repoName": "projects",
+    "slug": "projects",
+    "title": "projects",
+    "description": "List of all my projects",
+    "repoUrl": "https://github.com/chakri68/projects",
+    "liveUrl": "http://projects.chakri.me/",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": false,
+    "status": "live",
+    "hasReadme": true,
+    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
+    "coverImage": "https://projects.chakri.me/og-image.png",
+    "createdAt": "2026-07-07T14:45:12Z",
+    "updatedAt": "2026-10-04T15:40:00Z",
+    "pushedAt": "2026-10-04T15:39:57Z"
   },
   {
     "id": "1366201611",
@@ -310,31 +335,6 @@
     "createdAt": "2026-09-11T13:44:36Z",
     "updatedAt": "2026-10-04T10:36:33Z",
     "pushedAt": "2026-10-04T10:36:29Z"
-  },
-  {
-    "id": "1292463261",
-    "repoName": "projects",
-    "slug": "projects",
-    "title": "projects",
-    "description": "List of all my projects",
-    "repoUrl": "https://github.com/chakri68/projects",
-    "liveUrl": "http://projects.chakri.me/",
-    "tags": [],
-    "language": "TypeScript",
-    "topics": [],
-    "stars": 0,
-    "forks": 0,
-    "isArchived": false,
-    "isFork": false,
-    "isFeatured": false,
-    "show": false,
-    "status": "live",
-    "hasReadme": true,
-    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
-    "coverImage": "https://projects.chakri.me/og-image.png",
-    "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-10-04T09:37:16Z",
-    "pushedAt": "2026-10-04T09:37:12Z"
   },
   {
     "id": "1146942338",
@@ -561,7 +561,7 @@
     "coverImage": "https://avatars.githubusercontent.com/u/99131274?v=4?s=400",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-10-04T04:32:53Z"
+    "pushedAt": "2026-10-05T04:18:35Z"
   },
   {
     "id": "1261918394",
@@ -2269,7 +2269,7 @@
     "repoName": "many-wordles",
     "slug": "many-wordles",
     "title": "many-wordles",
-    "description": "Five daily word games. One puzzle each, same for everyone.",
+    "description": "Daily word games, each a twist on the classic: fading clues, lying tiles, a bot you score, meaning-based guessing and more. One puzzle each, same for everyone.",
     "repoUrl": "https://github.com/chakri68/many-wordles",
     "liveUrl": "https://many-wordles.chakri.me/",
     "tags": [],
@@ -2283,9 +2283,10 @@
     "show": true,
     "status": "live",
     "hasReadme": false,
+    "coverImage": "https://many-wordles.chakri.me/og/home.png",
     "createdAt": "2026-10-04T15:03:58Z",
-    "updatedAt": "2026-10-04T15:07:07Z",
-    "pushedAt": "2026-10-04T15:04:55Z"
+    "updatedAt": "2026-10-05T07:04:33Z",
+    "pushedAt": "2026-10-05T07:04:29Z"
   },
   {
     "id": "1262253605",
