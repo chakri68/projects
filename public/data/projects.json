@@ -263,6 +263,31 @@
     "pushedAt": "2025-10-04T16:47:19Z"
   },
   {
+    "id": "1292463261",
+    "repoName": "projects",
+    "slug": "projects",
+    "title": "projects",
+    "description": "List of all my projects",
+    "repoUrl": "https://github.com/chakri68/projects",
+    "liveUrl": "http://projects.chakri.me/",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": false,
+    "status": "live",
+    "hasReadme": true,
+    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
+    "coverImage": "https://projects.chakri.me/og-image.png",
+    "createdAt": "2026-07-07T14:45:12Z",
+    "updatedAt": "2026-10-05T10:18:14Z",
+    "pushedAt": "2026-10-05T10:18:10Z"
+  },
+  {
     "id": "1308057449",
     "repoName": "collections",
     "slug": "collections",
@@ -286,31 +311,6 @@
     "createdAt": "2026-07-21T19:31:38Z",
     "updatedAt": "2026-10-05T07:13:31Z",
     "pushedAt": "2026-10-05T07:13:27Z"
-  },
-  {
-    "id": "1292463261",
-    "repoName": "projects",
-    "slug": "projects",
-    "title": "projects",
-    "description": "List of all my projects",
-    "repoUrl": "https://github.com/chakri68/projects",
-    "liveUrl": "http://projects.chakri.me/",
-    "tags": [],
-    "language": "TypeScript",
-    "topics": [],
-    "stars": 0,
-    "forks": 0,
-    "isArchived": false,
-    "isFork": false,
-    "isFeatured": false,
-    "show": false,
-    "status": "live",
-    "hasReadme": true,
-    "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
-    "coverImage": "https://projects.chakri.me/og-image.png",
-    "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-10-04T15:40:00Z",
-    "pushedAt": "2026-10-04T15:39:57Z"
   },
   {
     "id": "1366201611",
@@ -561,7 +561,7 @@
     "coverImage": "https://avatars.githubusercontent.com/u/99131274?v=4?s=400",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-10-05T04:18:35Z"
+    "pushedAt": "2026-10-06T05:06:24Z"
   },
   {
     "id": "1261918394",
