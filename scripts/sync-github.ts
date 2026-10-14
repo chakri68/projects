@@ -225,6 +225,13 @@ function isValidUrl(u: string | null | undefined): u is string {
   }
 }
 
+/** GitHub stores homepages as typed, so "example.com" arrives scheme-less. */
+function withScheme(u: string | null | undefined): string | undefined {
+  const trimmed = u?.trim();
+  if (!trimmed) return undefined;
+  return /^[a-z][a-z0-9+.-]*:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+}
+
 /** Live-link detection priority ladder (design §7.2). */
 function detectLiveUrl(
   repo: GhRepo,
@@ -232,7 +239,8 @@ function detectLiveUrl(
   pagesUrl: string | null,
 ): string | undefined {
   if (isValidUrl(override?.liveUrl)) return override!.liveUrl;
-  if (isValidUrl(repo.homepage)) return repo.homepage!;
+  const homepage = withScheme(repo.homepage);
+  if (isValidUrl(homepage)) return homepage;
   if (isValidUrl(pagesUrl)) return pagesUrl!;
   const custom = CUSTOM_DOMAINS[repo.name];
   if (isValidUrl(custom)) return custom;
