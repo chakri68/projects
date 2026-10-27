@@ -263,6 +263,31 @@
     "pushedAt": "2025-10-04T16:47:19Z"
   },
   {
+    "id": "1385079201",
+    "repoName": "party",
+    "slug": "party",
+    "title": "party",
+    "description": "Sevens and Crazy Eights with friends, on any phone. No accounts, just a room code.",
+    "repoUrl": "https://github.com/chakri68/party",
+    "liveUrl": "https://party-games.chakri.me",
+    "tags": [],
+    "language": "TypeScript",
+    "topics": [],
+    "stars": 0,
+    "forks": 0,
+    "isArchived": false,
+    "isFork": false,
+    "isFeatured": false,
+    "show": true,
+    "status": "live",
+    "hasReadme": true,
+    "readmeUrl": "https://raw.githubusercontent.com/chakri68/party/master/README.md",
+    "coverImage": "https://party-games.chakri.me/og-image.png",
+    "createdAt": "2026-09-24T08:38:57Z",
+    "updatedAt": "2026-10-27T07:21:46Z",
+    "pushedAt": "2026-10-27T07:21:41Z"
+  },
+  {
     "id": "1292463261",
     "repoName": "projects",
     "slug": "projects",
@@ -284,8 +309,8 @@
     "readmeUrl": "https://raw.githubusercontent.com/chakri68/projects/master/README.md",
     "coverImage": "https://projects.chakri.me/og-image.png",
     "createdAt": "2026-07-07T14:45:12Z",
-    "updatedAt": "2026-10-25T08:19:14Z",
-    "pushedAt": "2026-10-25T08:19:10Z"
+    "updatedAt": "2026-10-26T08:46:57Z",
+    "pushedAt": "2026-10-26T08:46:53Z"
   },
   {
     "id": "1119611165",
@@ -311,31 +336,6 @@
     "createdAt": "2025-12-19T14:52:44Z",
     "updatedAt": "2026-10-14T14:52:59Z",
     "pushedAt": "2026-10-14T14:52:51Z"
-  },
-  {
-    "id": "1385079201",
-    "repoName": "party",
-    "slug": "party",
-    "title": "party",
-    "description": "Sevens and Crazy Eights with friends, on any phone. No accounts, just a room code.",
-    "repoUrl": "https://github.com/chakri68/party",
-    "liveUrl": "https://party-games.chakri.me",
-    "tags": [],
-    "language": "TypeScript",
-    "topics": [],
-    "stars": 0,
-    "forks": 0,
-    "isArchived": false,
-    "isFork": false,
-    "isFeatured": false,
-    "show": true,
-    "status": "live",
-    "hasReadme": true,
-    "readmeUrl": "https://raw.githubusercontent.com/chakri68/party/master/README.md",
-    "coverImage": "https://party-games.chakri.me/og-image.png",
-    "createdAt": "2026-09-24T08:38:57Z",
-    "updatedAt": "2026-10-14T11:41:29Z",
-    "pushedAt": "2026-10-09T10:53:13Z"
   },
   {
     "id": "1308057449",
@@ -611,7 +611,7 @@
     "coverImage": "https://avatars.githubusercontent.com/u/99131274?v=4?s=400",
     "createdAt": "2022-02-06T14:52:39Z",
     "updatedAt": "2026-06-29T14:34:22Z",
-    "pushedAt": "2026-10-26T03:26:32Z"
+    "pushedAt": "2026-10-27T03:53:14Z"
   },
   {
     "id": "1261918394",
